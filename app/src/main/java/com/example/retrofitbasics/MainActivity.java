@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
                 List<Hero> heroList = response.body();
 
+                //set data
                 adapter = new HeroAdapter(heroList, getApplicationContext());
                 recyclerView.setAdapter(adapter);
             }
