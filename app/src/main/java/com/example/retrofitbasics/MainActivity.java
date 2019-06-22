@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void getHeroes() {
 
+        // retrofit setup
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Api.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
