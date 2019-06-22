@@ -17,8 +17,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * ---- Adding dagger to retrofit example : STEP 2 -------
- *
- *  We need many objects in this Module.
+ * <p>
+ * We need many objects in this Module.
  * You might already know that for Retrofit fit we need a bunch of things.
  * We need Cache, Gson, OkHttpClient and the Retrofit itself.
  * So we will define the providers for these objects here in this module.
@@ -49,6 +49,14 @@ public class ApiModule {
         gsonBuilder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
         return gsonBuilder.create();
 
+    }
+
+    @Provides
+    @Singleton
+    OkHttpClient provideOkhttpClient(Cache cache) {
+        OkHttpClient.Builder client = new OkHttpClient.Builder();
+        client.cache(cache);
+        return client.build();
     }
 
     @Provides
